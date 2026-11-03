@@ -1,3 +1,5 @@
+/* as cores e tamanhos foram retirados do próprio wireframe do Figma  */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,31 +7,126 @@
 }
 
 .sidebar {
-    color: #fff;
-    z-index: 20;
+    display: flex;
+    position: fixed;
     background: #173e3b;
     flex-direction: column;
     width: 248px;
     height: 100vh;
     padding: 30px 20px 22px;
+}
+
+/* @media (max-width: 768px) {
+    .sidebar {
+        display: flex;
+        position: fixed;
+        background: #173e3b;
+        flex-direction: row;
+        align-items: flex-end;
+        height: 100%;
+        padding: 30px 20px 22px;
+    }
+    .sidebar nav {
+
+    }
+} */
+
+.pesquisa {
+    color: #81908c;
+    background: #f5f4ef;
+    border: 1px solid #ebe9e2;
+    border-radius: 13px;
+    align-items: center;
+    gap: 10px;
+    width: 440px;
+    height: 50px;
+    padding: 10px 15px;
     display: flex;
-    position: fixed;
+}
+
+.pesquisa input {
+    color: #173e3b;
+    width: 100%;
+    background: none;
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+}
+
+.pesquisa img {
+    height: 10px;
 }
 
 .sidebar nav {
-    gap: 5px;
-    margin-top: 52px;
     display: grid;
+    gap: 5px;
+    margin-top: 32px;
+    margin-bottom: 10px;
+}
+
+.sidebar nav p {
+    font-size: 15px;
+}
+
+.botoes-nav {
+    color: #b9cfca;
+    background: none;
+    border: 0;
+    border-radius: 13px;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    font-weight: 600;
+    display: flex;
+}
+
+.botao-marca img {
+    padding: 6px 6px;
+    background-color: rgba(255, 127, 80, 0.746);
+    border-radius: 5px;
+}
+
+.lembrete {
+    background: #204844;
+    border: 1px solid #315a56;
+    border-radius: 18px;
+    margin-top: auto;
+    padding: 18px;
+}
+
+.ajeitando-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.titulo, .subtitulo {
+    color: white;
+}
+
+.titulo {
+    font-size: 25px;
+    font-weight: bold;
+    align-items: flex-start;
+}
+
+.subtitulo {
+    font-size: 15px;
+}
+.ativo {
+    box-shadow: inset 3px 0 var(--coral);
+    background: #27534f;
 }
 
 .botao-marca {
+    width: 226px;
+    height: 100px;
     color: inherit;
-    text-align: left;
     background: none;
     border: 0;
     align-items: center;
     gap: 11px;
-    padding: 0 8px;
+    padding: 0px 8px;
     display: flex;
 }
 
@@ -57,4 +154,3 @@ header {
     margin: 0 auto;
     padding: 54px 6% 70px;
 }
-
