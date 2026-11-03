@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    color: #fff;
+    z-index: 20;
+    background: #173e3b;
+    flex-direction: column;
+    width: 248px;
+    height: 100vh;
+    padding: 30px 20px 22px;
+    display: flex;
+    position: fixed;
+}
+
+.sidebar nav {
+    gap: 5px;
+    margin-top: 52px;
+    display: grid;
+}
+
+.botao-marca {
+    color: inherit;
+    text-align: left;
+    background: none;
+    border: 0;
+    align-items: center;
+    gap: 11px;
+    padding: 0 8px;
+    display: flex;
+}
+
+main {
+    width: calc(100% - 248px);
+    min-height: 100vh;
+    margin-left: 248px;
+}
+
+header {
+    backdrop-filter: blur(16px);
+    z-index: 12;
+    background: #ffffffc7;
+    border-bottom: 1px solid #ebe9e2;
+    align-items: center;
+    height: 82px;
+    padding: 0 6%;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
+.pricipal {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 54px 6% 70px;
+}
+
