@@ -10,8 +10,64 @@
     <div id="sidebar-container"></div>
     <main>
         <div id="header-container"></div>
-    </main>
+        <div class="paginas">
+            <div class="paginas-head">
+                <h2>LOJA</h2>
+                <p>Produtos selecionados</p>
+            </div>
+            <div class="filtro-loja">
+                <button class="selecionado">Todos</button>
+                <button>Cães</button>
+                <button>Gatos</button>
+                <button>Remédios</button>
+                <button>Higiene</button>
+            </div>
+            <div class="grid-produtos">
+                <article class="card-produto">
+                    <div class="foto-produto">
+                        <img src="../image/pet-food.png" alt="Foto ração cachorro">
+                    </div>
+                    <div class="informacao-produto">
+                        <p>Cães adultos</p>
+                        <h4>Ração</h4>
+                        <div class="avalicao">
 
+                        </div>
+                        <div>
+                            <b>89,90</b>
+                            <button onclick="adicionarProduto()" class="botao-adicionar">
+                                <img src="../image/plus.png" alt="Botão adicionar">
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-produto">
+                    <div class="foto-produto">
+                        <img src="../image/dog-toy.png" alt="Foto brinquedo cachorro">
+                    </div>
+                    <div class="informacao-produto">
+
+                    </div>
+                </article>
+                <article class="card-produto">
+                    <div class="foto-produto">
+                        <img src="../image/cat-toy.png" alt="">
+                    </div>
+                    <div class="informacao-produto">
+
+                    </div>
+                </article>
+                <article class="card-produto">
+                    <div class="foto-produto">
+                        <img src="../image/medicine.png" alt="">
+                    </div>
+                    <div class="informacao-produto">
+
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
     <script src="../script.js"></script>
     <script>
         carregarSidebar();

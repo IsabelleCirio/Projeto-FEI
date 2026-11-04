@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+body {
+    font-family: DM Sans, sans-serif;
+}
+
 .sidebar {
     display: flex;
     position: fixed;
@@ -44,6 +48,25 @@
     display: flex;
 }
 
+main {
+    width: calc(100% - 248px);
+    min-height: 100vh;
+    margin-left: 248px;
+}
+
+header {
+    backdrop-filter: blur(16px);
+    z-index: 12;
+    background: #ffffffc7;
+    border-bottom: 1px solid #ebe9e2;
+    align-items: center;
+    height: 82px;
+    padding: 0 6%;
+    display: flex;
+    position: sticky;
+    top: 0;
+}
+
 .pesquisa input {
     color: #173e3b;
     width: 100%;
@@ -80,18 +103,41 @@
     display: flex;
 }
 
+.sidebar nav a {
+    color: white;
+    text-decoration: none;
+}
+
 .botao-marca img {
     padding: 6px 6px;
     background-color: rgba(255, 127, 80, 0.746);
     border-radius: 5px;
 }
 
-.lembrete {
+.card-sidebar {
     background: #204844;
     border: 1px solid #315a56;
     border-radius: 18px;
     margin-top: auto;
     padding: 18px;
+}
+
+.card-sidebar b {
+    font-size: 14px;
+    color: white;
+}
+
+.card-sidebar p {
+    color: #adc5c0;
+    margin: 5px 0 12px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.card-sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 .ajeitando-logo {
@@ -113,9 +159,18 @@
 .subtitulo {
     font-size: 15px;
 }
+
 .ativo {
     box-shadow: inset 3px 0 var(--coral);
     background: #27534f;
+    color: #b9cfca;
+    border: 0;
+    border-radius: 13px;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    font-weight: 600;
+    display: flex;
 }
 
 .botao-marca {
@@ -130,27 +185,126 @@
     display: flex;
 }
 
-main {
-    width: calc(100% - 248px);
-    min-height: 100vh;
-    margin-left: 248px;
+.carrinho {
+    border: 1px solid coral;
+    width: 42px;
+    height: 42px;
+    color: var(--ink);
+    background: #fff;
+    border-radius: 13px;
+    place-items: center;
+    display: grid;
+    position: relative;
 }
 
-header {
-    backdrop-filter: blur(16px);
-    z-index: 12;
-    background: #ffffffc7;
-    border-bottom: 1px solid #ebe9e2;
+.carrinho:hover {
+    cursor: pointer;
+}
+
+.botoes-uteis {
     align-items: center;
-    height: 82px;
-    padding: 0 6%;
+    gap: 18px;
+    margin-left: auto;
     display: flex;
-    position: sticky;
-    top: 0;
 }
 
-.pricipal {
+.paginas {
     max-width: 1440px;
     margin: 0 auto;
     padding: 54px 6% 70px;
 }
+
+.paginas-head {
+    margin-bottom: 34px;
+}
+
+/* === PÁGINA PRINCIPAL (index.html) === */
+
+.principal-apresentacao {
+    background: #e4eee4;
+    border-radius: 30px;
+    min-height: 380px;
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+#nome-pessoa {
+    letter-spacing: 2px;
+    color: #d56854;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    display: block;
+}
+
+
+/* === PÁGINA LOJA (loja.html) === */
+
+.grid-produtos {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    display: grid;
+}
+
+.card-carrinho {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-produto {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.foto-produto {
+    place-items: center;
+    height: 205px;
+    display: grid;
+    position: relative;
+    background-color: rgb(175, 147, 137);
+}
+
+.informacao-produto {
+    padding: 16px;
+}
+
+.botao-adicionar {
+    border: none;
+}
+
+
+/* === PÁGINA CONTA (conta.html) === */
+
+
+/* === PÁGINA PETS (pets.html) === */
+
+
+/* === PÁGINA CONSULTAS (consultas.html) === */
+
+
+/* PÁGINA CARRINHO (carrinho.html) */
+.layout-carrinho {
+    grid-template-columns: 1fr 330px;
+    gap: 25px;
+    display: grid;
+}
+
+.carrinho-item {
+    border-bottom: 1px solid var(--line);
+    grid-template-columns: 85px 1fr auto 100px;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 0;
+    display: grid;
+}
+
+
+
+
+
+

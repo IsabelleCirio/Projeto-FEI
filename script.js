@@ -1,7 +1,3 @@
-// function pegarPaginaAtual() {
-//     return window.location.pathname;
-// }
-
 // function irPrincipal() {
 //     if (pegarPaginaAtual() == "/index.html") {
 //         window.location.href = "/index.html";
@@ -61,8 +57,7 @@ function carregarHeader() {
 }
 
 function carregarSidebar() {
-    fetch("/components/sidebar.html")
-        .then(resposta => {
+    fetch("/components/sidebar.html").then(resposta => {
             if (!resposta.ok) {
                 throw new Error("Não foi possível carregar o menu");
             }
@@ -75,4 +70,19 @@ function carregarSidebar() {
         .catch(erro => {
             console.error(erro);
         });
+}
+
+function adicionarAtivo() {
+    
+
+}
+
+function adicionaNome() {
+    const paragrafo = document.getElementById("nome-pessoa");
+
+    paragrafo.innerHTML += 'marina';
+}
+
+function irCarrinho() {
+    window.location.href = "../paginas/carrinho.html";
 }
