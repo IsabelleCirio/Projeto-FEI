@@ -1,5 +1,15 @@
 /* as cores e tamanhos foram retirados do próprio wireframe do Figma  */
 
+/* ink: #183b3a;
+muted: #6c7d79;
+line: #e6e5de;
+coral: #f47d63;
+cream: #fbf8f1;
+white: #fff;
+mint: #dcece4;
+yellow: #f5df9c;
+blue: #d9e9f0; */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +18,11 @@
 
 body {
     font-family: DM Sans, sans-serif;
+    color: #183b3a;
+}
+
+a {
+    text-decoration: none;
 }
 
 .sidebar {
@@ -18,6 +33,10 @@ body {
     width: 248px;
     height: 100vh;
     padding: 30px 20px 22px;
+}
+
+button {
+    cursor: pointer;
 }
 
 /* @media (max-width: 768px) {
@@ -67,6 +86,32 @@ header {
     top: 0;
 }
 
+input, select, textarea {
+    border: 1px solid #e6e5de;
+    width: 100%;
+    color: #183b3a;
+    background: #fbfbf8;
+    border-radius: 11px;
+    outline: 0;
+    margin-top: 7px;
+    padding: 12px;
+    font-size: 12px;
+    font: inherit;
+}
+
+label {
+    color: #5e706c;
+    margin-bottom: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    display: block;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
 .pesquisa input {
     color: #173e3b;
     width: 100%;
@@ -105,7 +150,6 @@ header {
 
 .sidebar nav a {
     color: white;
-    text-decoration: none;
 }
 
 .botao-marca img {
@@ -136,7 +180,6 @@ header {
 
 .card-sidebar a {
     color: white;
-    text-decoration: none;
     font-size: 12px;
 }
 
@@ -161,7 +204,7 @@ header {
 }
 
 .ativo {
-    box-shadow: inset 3px 0 var(--coral);
+    box-shadow: inset 3px 0 coral;
     background: #27534f;
     color: #b9cfca;
     border: 0;
@@ -189,16 +232,12 @@ header {
     border: 1px solid coral;
     width: 42px;
     height: 42px;
-    color: var(--ink);
+    color: coral;
     background: #fff;
     border-radius: 13px;
     place-items: center;
     display: grid;
     position: relative;
-}
-
-.carrinho:hover {
-    cursor: pointer;
 }
 
 .botoes-uteis {
@@ -218,18 +257,7 @@ header {
     margin-bottom: 34px;
 }
 
-/* === PÁGINA PRINCIPAL (index.html) === */
-
-.principal-apresentacao {
-    background: #e4eee4;
-    border-radius: 30px;
-    min-height: 380px;
-    display: grid;
-    position: relative;
-    overflow: hidden;
-}
-
-#nome-pessoa {
+.mini-texto {
     letter-spacing: 2px;
     color: #d56854;
     margin-bottom: 12px;
@@ -238,6 +266,93 @@ header {
     display: block;
 }
 
+.paginas-head h2 {
+    letter-spacing: -2.5px;
+    max-width: 620px;
+    height: auto;
+    margin: 0;
+    font-size: 35px;
+    padding: 0;
+}
+
+.perfil-pet, .formulario-cons, .cartao-plano, .cartao-conta, .cartao-beneficio {
+    border: 1px solid #e6e5de;
+    background: #fff;
+    border-radius: 22px;
+}
+
+
+/* === PÁGINA PRINCIPAL (index.html) === */
+
+.principal-apresentacao {
+    background: #e4eee4;
+    border-radius: 30px;
+    min-height: 300px;
+    display: grid;
+    position: relative;
+    overflow: hidden;
+}
+
+.principal-apresentacao > div:first-child {
+    padding: 55px 0 48px 7%;
+    z-index: 2;
+}
+
+@media (max-width: 1000px) {
+  .principal-apresentacao > div:first-child {
+    padding-right: 35%;
+  }
+}
+
+.principal-apresentacao h2 {
+    letter-spacing: -2.5px;
+    max-width: 620px;
+    margin: 0;
+    font: 600 clamp(34px, 4vw, 58px) / 1.06 Manrope;
+}
+
+.principal-apresentacao p, .paginas-head p {
+    font-size: 15px;
+    color: #59716c;
+    line-height: 1.65;
+    max-width: 530px;
+    margin: 18px 0 25px;
+}
+
+.botoes-principal {
+    gap: 10px;
+    display: flex;
+}
+
+.primario {
+    border: 1px solid #183b3a;
+    background: #183b3a;
+    color: #fff;
+}
+
+.secundario {
+    color: #173e3b;
+    background: #fff9;
+    border: 1px solid #cbd5d0;
+}
+
+.primario, .secundario {
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 19px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+}
+
+.botoes-extras {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0 58px;
+    display: grid;
+}
 
 /* === PÁGINA LOJA (loja.html) === */
 
@@ -247,15 +362,8 @@ header {
     display: grid;
 }
 
-.card-carrinho {
-    border: 1px solid var(--line);
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
 .card-produto {
-    border: 1px solid var(--line);
+    border: 1px solid #d1d0c9;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -266,28 +374,380 @@ header {
     height: 205px;
     display: grid;
     position: relative;
-    background-color: rgb(175, 147, 137);
+    background-color: rgb(103, 126, 116);
+}
+
+.botao-adicionar {
+    background: none;
+    border: 0;
+    font-size: 11px;
+    font-weight: 800;
 }
 
 .informacao-produto {
     padding: 16px;
 }
 
-.botao-adicionar {
-    border: none;
+.informacao-produto > small {
+    font-size: 10px;
+    color: #84928e;
+    text-transform: uppercase;
+    letter-spacing: .7px;
 }
 
+.informacao-produto h4 {
+    font: 700 15px;
+    margin: 5px 0 8px;
+}
+
+.avaliacao {
+    font-size: 11px;
+    color: #596360;
+}
+
+.avaliacao b {
+    color: #173e3b;
+}
+
+.avaliacao img {
+    width: 10px;
+}
+
+.preco {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.filtro-loja {
+    gap: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    overflow: auto;
+}
+
+.filtro-loja button.selecionado {
+    background: #173e3b;
+    color: #fff;
+    border-color: #173e3b; 
+}
+
+.filtro-loja button {
+    border: 1px solid rgb(186, 203, 193);
+    color: #5e716d;
+    white-space: nowrap;
+    background: #fff;
+    border-radius: 20px;
+    padding: 9px 17px;
+    font-size: 12px;
+}
 
 /* === PÁGINA CONTA (conta.html) === */
 
+.grid-plano {
+    grid-template-columns: .8fr 1.2fr;
+    gap: 20px;
+    display: grid;
+    margin-bottom: 20px;
+}
+
+.cartao-plano {
+    color: #fff;
+    background: #193f3c;
+    grid-row: span 2;
+    padding: 32px;
+}
+
+.cartao-plano h2 {
+    margin: 0;
+    font: 800 40px Manrope;
+}
+
+.cartao-plano p {
+    color: #aac2bd;
+    font-size: 12px;
+}
+
+.plano-preco {
+    margin: 35px 0;
+}
+
+.plano-preco b {
+    font: 800 27px Manrope;
+}
+
+.plano-preco span {
+  color: #aac2bd;
+  font-size: 11px;
+}
+
+.barra-progresso {
+    justify-content: space-between;
+    font-size: 10px;
+    display: flex;
+}
+
+.progresso {
+  background: #315955;
+  border-radius: 5px;
+  height: 6px;
+  margin: 8px 0 28px;
+}
+
+.progresso i {
+    background: #f47d63;
+    border-radius: 5px;
+    width: 38%;
+    height: 100%;
+    display: block;
+}
+
+.cartao-conta, .cartao-beneficio {
+    padding: 27px;
+}
+
+.cartao-conta h3, .cartao-beneficio h3 {
+    margin: 0 0 20px;
+    font: 800 18px Manrope;
+}
+
+.cartao-conta label {
+    margin-bottom: 10px;
+}
+
+.cartao-beneficio {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    display: grid;
+}
+
+.cartao-beneficio h3 {
+    grid-column: 1 / -1;
+}
+
+.cartao-beneficio > div {
+    align-items: center;
+    gap: 10px;
+    display: flex;
+}
+
+.cartao-beneficio > div > span {
+    color: #347568;
+    background: #dcece4;
+    border-radius: 50%;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    display: grid;
+}
+
+.cartao-beneficio p, .cartao-beneficio b, .cartao-beneficio small {
+    margin: 0;
+    display: block;
+}
 
 /* === PÁGINA PETS (pets.html) === */
 
+.perfil-pet {
+    grid-template-columns: 250px 1fr;
+    display: grid;
+    overflow: hidden;
+}
+
+.resumo-pet {
+    text-align: center;
+    background: #e4eee4;
+    padding: 40px;
+}
+
+.resumo-pet button {
+    color: #c7614e;
+    background: none;
+    border: 0;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.resumo-pet h3 {
+    margin: 20px 0 4px;
+    font: 800 20px Manrope;
+}
+
+.resumo-pet p {
+    color: #6c7d79;
+    font-size: 11px;
+}
+
+.resumo-pet > div:last-child {
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.resumo-pet > div span {
+  background: #fff9;
+  border-radius: 12px;
+  padding: 6px 9px;
+  font-size: 9px;
+}
+
+.foto-pet {
+    color: #fff;
+    background: #d9a96e;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 10px;
+    font: 800 42px Manrope;
+    display: grid;
+    box-shadow: 0 8px 20px #183b3a16;
+}
+
+.detalhes-form {
+  padding: 36px;
+}
+
+.grid-detalhes {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    display: grid;
+}
+
+.grid-detalhes label {
+    color: #5e706c;
+    margin-bottom: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    display: block;
+}
 
 /* === PÁGINA CONSULTAS (consultas.html) === */
 
+.formulario-cons {
+    padding: 30px;
+}
+
+.percurso {
+    align-items: flex-start;
+    margin-bottom: 36px;
+    display: flex;
+}
+
+.percurso small {
+    color: #81908c;
+    font-size: 9px;
+    position: absolute;
+    top: 40px;
+}
+
+.percurso > span {
+    color: #899590;
+    background: #edf0ed;
+    border-radius: 50%;
+    flex: none;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+    font-weight: 800;
+    display: grid;
+    position: relative;
+}
+
+.percurso span.feito {
+    background: #183b3a;
+    color: #fff;
+}
+
+.percurso i {
+    background: #e6e5de;
+    flex: 1;
+    height: 1px;
+    margin-top: 17px;
+}
+
+form h3 {
+    margin: 0 0 20px;
+    font: 800 20px Manrope;
+}
+
+.escolha {
+    gap: 10px;
+    margin-bottom: 22px;
+    display: grid;
+}
+
+.escolha label {
+    border: 1px solid #e6e5de;
+    cursor: pointer;
+    border-radius: 14px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    display: flex;
+}
+
+.escolha label:has(input:checked) {
+    background: #f2f8f5;
+    border-color: #448078;
+}
+
+.escolha input, .escolha small, .escolha b {
+    display: none;
+}
+
+.pet-avatar {
+    border-radius: 50%;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    font-weight: 800;
+    display: grid;
+}
+
+.escolha small {
+    color: #84938f;
+    margin-top: 3px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.pet-avatar.dog {
+    color: #805d38;
+    background: #f3d6a9;
+}
+
+.pet-avatar.cat {
+  color: #575e82;
+  background: #dce1ef;
+}
+
+.escolha b, .escolha small {
+    display: block;
+}
+
+.escolha label:has(input:checked) > i {
+    border: 4px solid #3d796f;
+}
+
+.escolha label > i {
+    border: 1px solid #a8b4b0;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: auto;
+}
+
+.cheio {
+    width: 100%;
+}
 
 /* PÁGINA CARRINHO (carrinho.html) */
+
 .layout-carrinho {
     grid-template-columns: 1fr 330px;
     gap: 25px;
@@ -295,7 +755,7 @@ header {
 }
 
 .carrinho-item {
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid #173e3b;
     grid-template-columns: 85px 1fr auto 100px;
     align-items: center;
     gap: 18px;
@@ -303,8 +763,146 @@ header {
     display: grid;
 }
 
+.lista-carrinho {
+    border: 1px solid #e6e5de;
+    background: #fff;
+    border-radius: 20px;
+    padding: 6px 22px;
+}
 
+.sumario {
+    border: 1px solid #e6e5de;
+    background: #fff;
+    border-radius: 20px;
+    height: max-content;
+    padding: 24px;
+}
 
+.sumario h3 {
+    margin: 0 0 23px;
+    font: 800 18px Manrope;
+}
 
+.sumario > div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin: 14px 0;
+    color: #6d7c78;
+}
 
+.sumario .total {
+  color: var(--ink);
+  font-size: 15px;
+}
 
+.sumario .total b {
+  font-size: 20px;
+}
+
+.sumario > small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #84938f;
+    margin-top: 12px;
+}
+
+.sumario hr {
+    border: 0;
+    border-top-width: 0px;
+    border-top-style: none;
+    border-top-color: currentcolor;
+    border-top: 1px solid #e6e5de;
+    margin: 20px 0;
+}
+
+.lista-carrinho {
+    background: #fff;
+    border: 1px solid #e6e5de;
+    border-radius: 20px;
+    padding: 6px 22px;
+}
+
+.item-carrinho:last-child {
+  border: 0;
+}
+
+.item-carrinho {
+    display: grid;
+    grid-template-columns: 85px 1fr auto 100px;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e6e5de;
+}
+
+.foto-carrinho {
+    background: #dbece2;
+    width: 82px;
+    height: 75px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.foto-carrinho img {
+    width: 50px;
+}
+
+.nome-carrinho small {
+    font-size: 80%;
+    font-size: 10px;
+    color: #88948f;
+}
+
+.nome-carrinho small, .nome-carrinho b {
+    display: block;
+}
+
+.nome-carrinho b {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.nome-carrinho button {
+    color: #c86451;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+.quantidade-carrinho {
+    border: 1px solid #e6e5de;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.quantidade-carrinho button {
+    width: 30px;
+    height: 30px;
+    color: #183b3a;
+    background: #fff;
+    border: 0;
+    place-items: center;
+    display: grid;
+}
+
+.quantidade-carrinho b {
+    text-align: center;
+    min-width: 22px;
+    font-size: 11px;
+}
+
+.quantidade-carrinho button img {
+    width: 10px;
+}
+
+.item-carrinho > strong {
+    text-align: right;
+    font-size: 14px;
+}

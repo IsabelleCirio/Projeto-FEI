@@ -1,43 +1,34 @@
-// function irPrincipal() {
-//     if (pegarPaginaAtual() == "/index.html") {
-//         window.location.href = "/index.html";
-//     } else {
-//         window.location.href = "../index.html";
-//     }
+// adicionar planos
+// const planos = {
+
 // }
 
-// function irConsultas() {
-//     if (pegarPaginaAtual() == "/index.html") {
-//         window.location.href = "../paginas/consultas.html";
-//     } else {
-//         window.location.href = "./consultas.html";
-//     }
-// }
+// criar função para colocar inf de usuario dentro dos inputs de conta
 
-// function irLoja() {
-//     if (pegarPaginaAtual() == "/index.html") {
-//         window.location.href = "../paginas/loja.html";
-//     } else {
-//         window.location.href = "./loja.html";
+const usuario = {
+  nome: "João",
+  telefone: "(11) 98765-4321",
+  email: "joao@email.com",
+  pets: [
+    {
+        nome: "Bento",
+        especie: "cachorro",
+        idade: 4,
+        sexo: 'M'
+    }, {
+        nome: "Lua",
+        especie: "gato",
+        idade: 2,
+        sexo: 'F'
+    }
+  ],
+//   carrinho: [
+//     {
+//         nome: "Ração"
 //     }
-// }
-
-// function irPets() {
-//     if (pegarPaginaAtual() == "/index.html") {
-//         window.location.href = "../paginas/pets.html";
-//     } else {
-//         window.location.href = "./pets.html";
-//     }
-// }
-
-// function irConta() {
-//     if (pegarPaginaAtual() == "/index.html") {
-//         window.location.href = "../paginas/conta.html";
-//     } else {
-//         window.location.href = "./conta.html";
-//     }
-// }
-
+//   ],
+  plano: Carinho
+};
 
 function carregarHeader() {
     fetch("/components/header.html")
@@ -78,11 +69,22 @@ function adicionarAtivo() {
 }
 
 function adicionaNome() {
-    const paragrafo = document.getElementById("nome-pessoa");
-
-    paragrafo.innerHTML += 'marina';
+    const elemento = document.getElementById("nome");
+    elemento.textContent += ", " + usuario.nome;
 }
 
 function irCarrinho() {
     window.location.href = "../paginas/carrinho.html";
+}
+
+function filtro() {
+
+}
+
+function alterarFotoPet() {
+
+}
+
+function mostrarQuantidadeCarrinho() {
+    
 }

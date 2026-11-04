@@ -11,7 +11,67 @@
     <main>
         <div id="header-container"></div>
         <div class="paginas">
-
+            <div class="paginas-head">
+                <span class="mini-texto">FAMÍLIA LigandoPets</span>
+                <h2>Perfil do pet</h2>
+                <p>Quanto mais sabemos, melhor conseguimos cuidar.</p>
+            </div>
+        <!-- fazer carrosel de perfils -->
+        <div class="perfil-pet">
+            <div class="resumo-pet">
+                <div class="foto-pet">B</div>
+                <button onclick="alterarFotoPet()">
+                    Alterar foto
+                </button>
+                <h3>Bento</h3>
+                <p>Golden Retriever • 4 anos</p>
+                <div>
+                    <span>12 consultas</span>
+                    <span>Plano ativo</span>
+                </div>
+            </div>
+            <form class="detalhes-form">
+                <h3>Informações do Bento</h3>
+                <div class="grid-detalhes">
+                    <label>
+                        Tipo de pelagem
+                        <select>
+                            <option value="curta">Curta</option>
+                            <option value="longa" selected="">Longa</option>
+                            <option value="cacheada">Cacheada</option>
+                            <option value="sem">Sem pelos</option>
+                        </select>
+                    </label>
+                    <label>
+                        Porte
+                        <select>
+                            <option value="pequeno">Pequeno</option>
+                            <option value="medio">Médio</option>
+                            <option value="grande" selected="">Grande</option>
+                        </select>
+                    </label>
+                    <label>
+                        Peso atual
+                        <input value="31,5 kg">
+                    </label>
+                    <label>
+                        Sexo
+                        <select>
+                            <option value="macho">Macho</option>
+                            <option value="femea">Fêmea</option>
+                        </select>
+                    </label>
+                </div>
+                <label>
+                    Dificuldades e comportamento
+                    <textarea>Tem um pouco de medo de secador e fica ansioso perto de cães muito agitados.</textarea>
+                </label>
+                <label>
+                    Preferências
+                    <textarea>Adora petiscos de frango, bolinha azul e carinho atrás das orelhas.</textarea>
+                </label>
+                <button class="primario" type="submit">Salvar alterações</button>
+            </form>
         </div>
     </main>
     <script src="../script.js"></script>
