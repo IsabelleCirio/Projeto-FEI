@@ -1,75 +1,61 @@
 // adicionar planos
-const planos = {
-    Carinho: [
-        {
-            preço: 79.90,
-            beneficios: [
-                {
-                    consultasAno: 2,
-                    descontoLoja: 0.1,
-                    //Isso após a utilização das consultas ao ano
-                    descontoExamesComplexos: 0.15,
-                    vacinasEssenciaisInc: true,
-                    banhoMensalDesc: 0.2
-                }
-            ]
+const planos = [
+    {
+        nome: "Carinho",
+        preço: 79.90,
+        beneficios: {
+            consultasAno: 2,
+            descontoLoja: 0.1,
+            //Isso após a utilização das consultas ao ano
+            descontoExamesComplexos: 0.15,
+            vacinasEssenciaisInc: true,
+            banhoMensalDesc: 0.2
         }
-    ],
-    Basico: [
-        {
-            preço: 49.90,
-            beneficios: [
-                {
-                    consultasAno: 2,
-                    descontoLoja: 0.05,
-                    //Isso após a utilização das consultas ao ano
-                    descontoExamesComplexos: 0.01,
-                    vacinasEssenciaisInc: false,
-                    banhoMensalDesc: 0.15
-                }
-            ]
+    },
+    {
+        nome: "Básico",
+        preço: 49.90,
+        beneficios: {
+            consultasAno: 2,
+            descontoLoja: 0.05,
+            //Isso após a utilização das consultas ao ano
+            descontoExamesComplexos: 0.01,
+            vacinasEssenciaisInc: false,
+            banhoMensalDesc: 0.15
         }
-    ]
-}
+    }
+]
 
-const produtos = {
-    Ração_Cachorro: [
-        {
-            nome: "Ração Cachorro",
-            tipo: "cão",
-            preco: 89.90,
-            quantidadeVendido: 67,
-            avaliacao: 4.2
-        }
-    ],
-    Mordedor_Canino: [
-        {
-            nome: "Mordedor Canino",
-            tipo: "cão",
-            preco: 49.99,
-            quantidadeVendido: 101,
-            avaliacao: 4.6 
-        }
-    ],
-    Arranhador: [
-        {
-            nome: "Arranhador",
-            tipo: "gato",
-            preco: 89.90,
-            quantidadeVendido: 29,
-            avaliacao: 4.0
-        }
-    ],
-    Vermífugo: [
-        {
-            nome: "Vermífugo",
-            tipo: "cão_gato",
-            preco: 16.50,
-            quantidadeVendido: 1000,
-            avaliacao: 5.0
-        }
-    ]
-}
+const produtos = [
+    {
+        nome: "Ração Cachorro",
+        tipo: "cão",
+        preco: 89.90,
+        quantidadeVendido: 67,
+        avaliacao: 4.2
+    },
+    {
+        nome: "Mordedor Canino",
+        tipo: "cão",
+        preco: 49.99,
+        quantidadeVendido: 101,
+        avaliacao: 4.6 
+    },
+    {
+        nome: "Arranhador",
+        tipo: "gato",
+        preco: 89.90,
+        quantidadeVendido: 29,
+        avaliacao: 4.0
+    },
+    {
+        nome: "Vermífugo",
+        tipo: "cão_gato",
+        preco: 16.50,
+        quantidadeVendido: 1000,
+        avaliacao: 5.0
+    }
+]
 
 // criar função para colocar inf de usuario dentro dos inputs de conta
 
@@ -89,10 +75,11 @@ const usuario = {
             idade: 2,
             sexo: 'F'
     }],
-    carrinho: [{
-        1: produtos.Ração_Cachorro
-    }],
-    plano: planos.Carinho
+    carrinho: [
+        {1: produtos[0]},
+        {2: produtos[1]}
+    ],
+    plano: planos[0]
 };
 
 function carregarHeader() {
@@ -132,6 +119,12 @@ function carregarSidebar() {
 function adicionarAtivo() {
     let linkAtual = window.location.pathname;
 
+    if (linkAtual != "/index.html") {
+        let index = document.querySelector(".ativo")
+        index.classList.remove("ativo")
+        index.classList.add("botoes-nav")
+    }
+
     const linksBotoes = document.querySelectorAll('.sidebarNav div');
 
     linksBotoes.forEach(botao => {
@@ -161,10 +154,25 @@ function irCarrinho() {
     window.location.href = "../paginas/carrinho.html";
 }
 
-function filtro() {
+// function filtro() {
 
+// }
+
+// function removerProduto() {
+
+// }
+
+function adicionarProduto() {
+    
 }
 
 // function mostrarQuantidadeCarrinho() {
-    
+//
+// }
+
+// function verificadorTela() {
+//     if (window.screen.width <= 480 && window.screen.height <= 932) {
+//         document.querySelector(".sidebarNav").classList.remove()
+//         document.querySelector(".sidebarNav").classList.add("mobile-nav")
+//     }
 // }

@@ -36,37 +36,37 @@ a {
     z-index: 20;
 }
 
+@media (max-width: 720px) {
+  .mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 66px;
+        background: #fff;
+        border-top: 1px solid #e6e5de;
+        z-index: 30;
+        justify-content: space-around;
+        padding-bottom: 4px;
+  }
+}
+
 button {
     cursor: pointer;
 }
 
-@media (max-width: 720px) {
-  .mobile-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 66px;
-    background: #fff;
-    border-top: 1px solid #e6e5de;
-    z-index: 30;
-    justify-content: space-around;
-    padding-bottom: 4px;
-  }
-}
-
 .pesquisa {
-    color: #81908c;
-    background: #f5f4ef;
-    border: 1px solid #ebe9e2;
-    border-radius: 13px;
-    align-items: center;
-    gap: 10px;
-    width: 440px;
-    height: 50px;
-    padding: 10px 15px;
-    display: flex;
+        color: #81908c;
+        background: #f5f4ef;
+        border: 1px solid #ebe9e2;
+        border-radius: 13px;
+        align-items: center;
+        gap: 10px;
+        width: 440px;
+        height: 50px;
+        padding: 10px 15px;
+        display: flex;
 }
 
 main {
@@ -77,7 +77,6 @@ main {
 
 header {
     backdrop-filter: blur(16px);
-    z-index: 12;
     background: #ffffffc7;
     border-bottom: 1px solid #ebe9e2;
     align-items: center;
