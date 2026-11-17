@@ -49,7 +49,7 @@ const produtos = [
     {
         nome: "Arranhador",
         tipo: "Gatos filhotes",
-        preco: "89.90",
+        preco: "120.00",
         quantidadeVendido: "29",
         avaliacao: "4.0",
         foto: "../image/cat-toy.png",
@@ -84,8 +84,7 @@ const usuario = {
             sexo: 'F'
         }],
     carrinho: [
-            {1: produtos[0]},
-            {2: produtos[1]}
+
         ],
     plano: planos[0]
 };
@@ -163,6 +162,7 @@ function filtrar() {
 
             colocarProdutosLoja(filtro.id)     
         })
+        colocarProdutosLoja("todos");
     })
 }
 
@@ -216,6 +216,7 @@ function colocarProdutosLoja(filtro = "todos") {
 
         let buttonAdicionar = document.createElement("button")
         buttonAdicionar.className = "botao-adicionar"
+        buttonAdicionar.id = produto.nome;
 
         let imgBotao = document.createElement("img")
         imgBotao.src = "../image/plus.png"
@@ -261,9 +262,24 @@ function irCarrinho() {
 // }
 
 //Função para adicionar produto no carrinho
-// function adicionarProduto() {
-    
-// }
+function adicionarProduto() {
+    const botoesAdicionar = document.querySelectorAll(".botao-adicionar")
+
+    let quantidadeCarrinho = 0;
+
+    botoesAdicionar.forEach(botao => 
+        botao.addEventListener("click", () => {
+            for (let i = 0; i < produtos.length; i++) {
+                if(produtos[i].nome == botao.id) {
+                    usuario.carrinho[quantidadeCarrinho] = produtos[i];
+                    quantidadeCarrinho += 1;
+                }
+            }
+        })
+    );
+
+    console.log(usuario.carrinho)
+}
 
 //Função para mostrar a quantidade de itens no carrinho do usuario
 // function mostrarQuantidadeCarrinho() {

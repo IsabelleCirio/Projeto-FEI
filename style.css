@@ -10,6 +10,8 @@ mint: #dcece4;
 yellow: #f5df9c;
 blue: #d9e9f0; */
 
+/* Deixar o header no topo assim mesmo ao scrolar */
+
 * {
     box-sizing: border-box;
     margin: 0;
