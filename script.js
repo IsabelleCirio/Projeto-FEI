@@ -83,9 +83,7 @@ const usuario = {
             idade: 2,
             sexo: 'F'
         }],
-    carrinho: [
-
-        ],
+    carrinho: [],
     plano: planos[0]
 };
 
@@ -261,24 +259,91 @@ function irCarrinho() {
 
 // }
 
-//Função para adicionar produto no carrinho
+//Função para adicionar produto no carrinho 
 function adicionarProduto() {
     const botoesAdicionar = document.querySelectorAll(".botao-adicionar")
 
-    let quantidadeCarrinho = 0;
-
-    botoesAdicionar.forEach(botao => 
+    botoesAdicionar.forEach(botao => {
         botao.addEventListener("click", () => {
-            for (let i = 0; i < produtos.length; i++) {
-                if(produtos[i].nome == botao.id) {
-                    usuario.carrinho[quantidadeCarrinho] = produtos[i];
-                    quantidadeCarrinho += 1;
-                }
+            const produtoEncontrado = produtos.find(produto => produto.nome === botao.id);
+
+            if(produtoEncontrado) {
+                (usuario.carrinho).push(produtoEncontrado)
             }
         })
-    );
+    });
+}
 
-    console.log(usuario.carrinho)
+function adicionarProdutoCarrinho() {
+    const divLista = document.querySelector(".lista-carrinho")
+
+    divLista.innerHTML = "";
+
+
+    if ((usuario.carrinho).length == 0) {
+        divLista.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    } else {
+        (usuario.carrinho).forEach(produto => {
+            const divItemCarrinho = document.createElement("div")
+            divItemCarrinho.className = "item-carrinho"
+
+            const divFotoCarrinho = document.createElement("div")
+            divFotoCarrinho.className = "foto-carrinho"
+
+            const imgCarrinho = document.createElement("img")
+            imgCarrinho.src = produto.foto
+            imgCarrinho.alt = produto.fotoAlt
+
+            const nomeCarrinho = document.createElement("div")
+            nomeCarrinho.className = "nome-carrinho"
+
+            const smallCar = document.createElement("small")
+            smallCar.textContent = produto.tipo
+            const bCar = document.createElement("b")
+            bCar.textContent = produto.nome
+            const buttonRemove = document.createElement("button")
+            buttonRemove.textContent = "Remover"
+
+            const divQntdCarrinho = document.createElement("div")
+            divQntdCarrinho.className = "quantidade-carrinho"
+
+            const botaoAdic = document.createElement("button")
+            const imgAdic = document.createElement("img")
+            imgAdic.src = "../image/plus1.png"
+            imgAdic.alt = "Adicionar"
+
+            const bQuanti = document.createElement("b")
+            bQuanti.textContent = "1"
+
+            const botaoRem = document.createElement("button")
+            const imgRem = document.createElement("img")
+            imgRem.src = "../image/minus-sign.png"
+            imgRem.alt = "Retirar"
+
+            const valorStrong = document.createElement("strong")
+            valorStrong.textContent = produto.preco
+
+            divFotoCarrinho.appendChild(imgCarrinho)
+
+            nomeCarrinho.appendChild(smallCar)
+            nomeCarrinho.appendChild(bCar)
+            nomeCarrinho.appendChild(buttonRemove)
+
+            botaoAdic.appendChild(imgAdic)
+            botaoRem.appendChild(imgRem)
+
+            divQntdCarrinho.appendChild(botaoAdic)
+            divQntdCarrinho.appendChild(bQuanti)
+            divQntdCarrinho.appendChild(botaoRem)
+
+            divItemCarrinho.appendChild(divFotoCarrinho)
+            divItemCarrinho.appendChild(nomeCarrinho)
+            divItemCarrinho.appendChild(divQntdCarrinho)
+            divItemCarrinho.appendChild(valorStrong)
+
+            divLista.appendChild(divItemCarrinho)
+        })
+    }
 }
 
 //Função para mostrar a quantidade de itens no carrinho do usuario
