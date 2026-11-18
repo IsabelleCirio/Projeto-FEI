@@ -21,10 +21,10 @@
             <div class="grid-plano">
                 <div class="cartao-plano">
                     <span class="mini-texto">PLANO ATUAL</span>
-                    <h2>Carinho</h2>
-                    <p>Cuidado completo para Bento e Lua.</p>
+                    <h2 id="planoNome"></h2>
+                    <p id="animais"></p>
                     <div class="plano-preco">
-                        <b>R$ 79,90</b>
+                        <b id="valorPlano"></b>
                         <span>/mês</span>
                     </div>
                     <div class="barra-progresso">
@@ -40,15 +40,15 @@
                     <h3>Informações da conta</h3>
                     <label>
                         Nome completo
-                        <input value="João">
+                        <input id="inputNome">
                     </label>
                     <label>
                         E-mail
-                        <input value="joao@email.com">
+                        <input id="inputEmail">
                     </label>
                     <label>
                         Telefone
-                        <input value="(11) 98765-4321">
+                        <input id="inputTelefone" value="(11) 98765-4321">
                     </label>
                     <button class="primario">Salvar informações</button>
                 </div>
@@ -98,6 +98,7 @@
     <script>
         carregarSidebar();
         carregarHeader();
+        mostrarInformacoesConta();
     </script>
 </body>
 </html>

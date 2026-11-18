@@ -1,8 +1,11 @@
+//Uso de ia para usar a API localStorage para armazenar os 
+// produtos do carrinho
+
 //Array-objeto dos planos do site
 const planos = [
     {
         nome: "Carinho",
-        preço: 79.90,
+        preço: "79,90",
         beneficios: {
             consultasAno: 2,
             descontoLoja: 0.1,
@@ -66,8 +69,9 @@ const produtos = [
     }
 ]
 
+
 //Array-objeto com informações do usuario
-const usuario = {
+let usuario = {
     nome: "João",
     telefone: "(11) 98765-4321",
     email: "joao@email.com",
@@ -75,6 +79,11 @@ const usuario = {
             nome: "Bento",
             especie: "cachorro",
             idade: 4,
+            porte: "Grande", 
+            peso: 31.5,
+            dificuldades: "Tem um pouco de medo de secador e fica ansioso perto de cães muito agitados.",
+            preferencias: "Adora petiscos de frango, bolinha azul e carinho atrás das orelhas.",
+            pelagem: "longa",
             sexo: 'M'
         }, 
         {
@@ -83,9 +92,11 @@ const usuario = {
             idade: 2,
             sexo: 'F'
         }],
+    /* @type {{ nome: String, tipo: String, preco: String, quantidadeVendido: String, avaliacao: String, foto: String, fotoAlt: String }[]} */
     carrinho: [],
     plano: planos[0]
 };
+
 
 //Função fetch para acrescentar o header para todas as páginas
 //Evita repetição de código
@@ -149,7 +160,7 @@ function adicionarAtivo() {
 
 //Função para ativar a classe selecionado no filtro de loja
 function filtrar() {
-    const filtroLoja = document.querySelectorAll(".filtro-loja button");
+    const filtroLoja = document.querySelectorAll("[data-categoria]");
 
     filtroLoja.forEach(filtro => {
         filtro.addEventListener("click", () => {
@@ -158,7 +169,7 @@ function filtrar() {
             })
             filtro.classList.add("selecionado");
 
-            colocarProdutosLoja(filtro.id)     
+            colocarProdutosLoja(filtro.dataset.categoria)     
         })
         colocarProdutosLoja("todos");
     })
@@ -254,36 +265,36 @@ function irCarrinho() {
     window.location.href = "../paginas/carrinho.html";
 }
 
-//Função para remover produto do carrinho
-// function removerProduto() {
-
-// }
-
 //Função para adicionar produto no carrinho 
 function adicionarProduto() {
     const botoesAdicionar = document.querySelectorAll(".botao-adicionar")
 
     botoesAdicionar.forEach(botao => {
         botao.addEventListener("click", () => {
+            usuario = JSON.parse(localStorage.getItem("usuario"))
             const produtoEncontrado = produtos.find(produto => produto.nome === botao.id);
 
             if(produtoEncontrado) {
                 (usuario.carrinho).push(produtoEncontrado)
+                localStorage.setItem("usuario", JSON.stringify(usuario))
             }
         })
     });
+    
 }
 
+//uso do localStorage para adicionar os produtos dentro do carrinho
 function adicionarProdutoCarrinho() {
+    usuario = JSON.parse(localStorage.getItem("usuario"))
+    console.log(usuario.carrinho)
     const divLista = document.querySelector(".lista-carrinho")
-
-    divLista.innerHTML = "";
 
 
     if ((usuario.carrinho).length == 0) {
         divLista.innerHTML = "<p>Seu carrinho está vazio.</p>";
     } else {
         (usuario.carrinho).forEach(produto => {
+            
             const divItemCarrinho = document.createElement("div")
             divItemCarrinho.className = "item-carrinho"
 
@@ -347,14 +358,52 @@ function adicionarProdutoCarrinho() {
 }
 
 //Função para mostrar a quantidade de itens no carrinho do usuario
-// function mostrarQuantidadeCarrinho() {
-//
-// }
+//NÃO FINALIZADO
+function mostrarQuantidadeCarrinho(produto) {
+    const produtoExiste = (usuario.carrinho).find(produto => produto.nome === (usuario.carrinho).nome)
+    let qntLista;
 
-//Verificador de tamanho de tela para alterar o sidebar 
-// function verificadorTela() {
-//     if (window.screen.width <= 480 && window.screen.height <= 932) {
-//         document.querySelector(".sidebarNav").classList.remove()
-//         document.querySelector(".sidebarNav").classList.add("mobile-nav")
-//     }
+    if(produtoExiste) {
+        quantidade += 1;
+    } else {
+        quantidade = 0;
+    }
+}
+
+//Mostra as informações da conta na página conta
+function mostrarInformacoesConta() {
+    const nomePlano = document.getElementById("planoNome")
+    nomePlano.textContent = usuario.plano.nome
+
+    const valorPlano = document.getElementById("valorPlano")
+    valorPlano.textContent = "R$ " + (usuario.plano.preço)
+
+    const animaisNome = document.getElementById("animais")
+    let textoPets = "";
+    let qntdPets = usuario.pets.length
+    
+    usuario.pets.forEach((animal, index) => {
+        if (index === qntdPets - 2) {
+            textoPets += animal.nome + " e "
+        } else if (index === qntdPets - 1) {
+            textoPets += animal.nome
+        } else {
+            textoPets += animal.nome + ", "
+        }
+    })
+    animaisNome.textContent = "Cuidado completo para " + textoPets
+
+    const inputNome = document.getElementById("inputNome")
+    inputNome.value = usuario.nome
+
+    const inputEmail = document.getElementById("inputEmail")
+    inputEmail.value = usuario.email
+
+    const inputTelefone = document.getElementById("inputTelefone")
+    inputTelefone.value = usuario.telefone
+}
+
+//Altera as informações na página conta (NÃO FINALIZADO)
+// function alterarInformacoesConta() {
+    
 // }
